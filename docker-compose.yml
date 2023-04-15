@@ -5,7 +5,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      POSTGRES_URL: postgres://postgres:postgres@pg:5432/library
+      POSTGRES_URL: postgres://postgres:postgres@pg:5432/librarydb
     depends_on:
       - pg
   pg:

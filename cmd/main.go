@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/serhhatsari/library-api/repository"
 	"net/http"
 )
 
@@ -15,8 +16,11 @@ func main() {
 	},
 	)
 
+	repo := repository.New()
+	defer repo.Close()
+
 	srv := &http.Server{
-		Addr: ":8080",
+		Addr: ":3000",
 	}
 
 	err := srv.ListenAndServe()
