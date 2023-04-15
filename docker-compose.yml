@@ -1,0 +1,21 @@
+version: '3'
+services:
+  library-api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      POSTGRES_URL: postgres://postgres:postgres@pg:5432/library
+    depends_on:
+      - pg
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: librarydb
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./resources/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
