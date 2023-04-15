@@ -10,10 +10,10 @@ const (
 )
 
 type Author struct {
-	ID        int       `db:"id"`
-	Name      string    `db:"name"`
-	Biography string    `db:"biography"`
-	BirthDate time.Time `db:"birth_date"`
+	ID        int       `json:"id"`
+	Name      string    `json:"name"`
+	Biography string    `json:"biography"`
+	BirthDate time.Time `json:"birth_date"`
 }
 
 type Category struct {
