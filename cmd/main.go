@@ -1,29 +1,32 @@
 package main
 
 import (
+	"github.com/go-chi/chi/v5"
+	"github.com/serhhatsari/library-api/app"
 	"github.com/serhhatsari/library-api/repository"
 	"net/http"
 )
 
 func main() {
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
-		_, err := w.Write([]byte("Hello World"))
-		if err != nil {
-			return
-		}
-	},
-	)
-
+	// Connect to the database
 	repo := repository.New()
 	defer repo.Close()
 
-	srv := &http.Server{
-		Addr: ":3000",
+	// Create the router
+	r := chi.NewRouter()
+
+	// Initialize the application
+	application := &app.App{
+		Repo:   repo,
+		Router: r,
 	}
 
-	err := srv.ListenAndServe()
+	// Register the routes
+	application.Register()
+
+	// Start the server
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		return
 	}
