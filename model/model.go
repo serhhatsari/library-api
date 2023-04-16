@@ -17,9 +17,9 @@ type Author struct {
 }
 
 type Category struct {
-	ID          int    `db:"id"`
-	Name        string `db:"name"`
-	Description string `db:"description"`
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
 }
 
 type Book struct {
