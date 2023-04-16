@@ -3,6 +3,7 @@ package app
 import (
 	"github.com/go-chi/chi/v5"
 	"github.com/serhhatsari/library-api/handler"
+	"github.com/serhhatsari/library-api/middleware"
 	"github.com/serhhatsari/library-api/repository"
 )
 
@@ -12,6 +13,9 @@ type App struct {
 }
 
 func (app *App) Register() {
+
+	middleware.RegisterMiddleware(app.Router)
+	
 	// Register Author routes
 	app.Router.Get("/authors", handler.GetAuthors(app.Repo))
 	app.Router.Post("/authors", handler.CreateAuthor(app.Repo))
@@ -46,4 +50,5 @@ func (app *App) Register() {
 	app.Router.Get("/categories/{id}", handler.GetCategory(app.Repo))
 	app.Router.Put("/categories/{id}", handler.UpdateCategory(app.Repo))
 	app.Router.Delete("/categories/{id}", handler.DeleteCategory(app.Repo))
+
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	log "github.com/serhhatsari/library-api/pkg/logger"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -29,6 +30,7 @@ func main() {
 	// Start the server
 	err := http.ListenAndServe(":8080", r)
 	if err != nil {
+		log.Logger().Fatal(err.Error())
 		return
 	}
 
