@@ -1,15 +1,15 @@
 package handler
 
 import (
-	"encoding/json"
+	"io"
+	"net/http"
+	"strconv"
+
 	"github.com/go-chi/chi/v5"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/serhhatsari/library-api/model"
 	log "github.com/serhhatsari/library-api/pkg/logger"
 	"github.com/serhhatsari/library-api/repository"
-	"io"
-	"net/http"
-	"strconv"
 )
 
 func GetBooks(repo *repository.Repository) http.HandlerFunc {
@@ -57,7 +57,7 @@ func CreateBook(repo *repository.Repository) http.HandlerFunc {
 			return
 		}
 
-		err = json.Unmarshal(body, &book)
+		err = jsoniter.Unmarshal(body, &book)
 		if err != nil {
 			log.Logger().Error(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)
@@ -133,7 +133,7 @@ func UpdateBook(repo *repository.Repository) http.HandlerFunc {
 			return
 		}
 
-		err = json.Unmarshal(body, &book)
+		err = jsoniter.Unmarshal(body, &book)
 		if err != nil {
 			log.Logger().Error(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)

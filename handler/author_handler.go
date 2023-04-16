@@ -1,14 +1,15 @@
 package handler
 
 import (
+	"io"
+	"net/http"
+	"strconv"
+
 	"github.com/go-chi/chi/v5"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/serhhatsari/library-api/model"
 	log "github.com/serhhatsari/library-api/pkg/logger"
 	"github.com/serhhatsari/library-api/repository"
-	"io"
-	"net/http"
-	"strconv"
 )
 
 func GetAuthors(repo *repository.Repository) http.HandlerFunc {
