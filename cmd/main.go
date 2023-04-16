@@ -1,10 +1,11 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/serhhatsari/library-api/app"
 	"github.com/serhhatsari/library-api/repository"
-	"net/http"
 )
 
 func main() {
