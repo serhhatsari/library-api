@@ -1,11 +1,11 @@
 package main
 
 import (
-	log "github.com/serhhatsari/library-api/pkg/logger"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/serhhatsari/library-api/app"
+	log "github.com/serhhatsari/library-api/pkg/logger"
 	"github.com/serhhatsari/library-api/repository"
 )
 

@@ -3,8 +3,9 @@ package repository
 import (
 	"context"
 	"fmt"
-	"github.com/jackc/pgx/v5/pgxpool"
 	"os"
+
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 type Repository struct {
