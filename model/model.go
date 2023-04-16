@@ -34,18 +34,18 @@ type Book struct {
 }
 
 type User struct {
-	ID        int      `db:"id"`
-	FirstName string   `db:"first_name"`
-	LastName  string   `db:"last_name"`
-	Email     string   `db:"email"`
-	Password  string   `db:"password"`
-	Role      UserRole `db:"role"`
+	ID        int      `json:"id"`
+	FirstName string   `json:"first_name"`
+	LastName  string   `json:"last_name"`
+	Email     string   `json:"email"`
+	Password  string   `json:"password"`
+	Role      UserRole `json:"role"`
 }
 
 type BookLoan struct {
-	ID           int       `db:"id"`
-	BookID       int       `db:"book_id"`
-	UserID       int       `db:"user_id"`
-	DueDate      time.Time `db:"due_date"`
-	ReturnedDate time.Time `db:"returned_date"`
+	ID           int       `json:"id"`
+	BookID       int       `json:"book_id"`
+	UserID       int       `json:"user_id"`
+	DueDate      time.Time `json:"due_date"`
+	ReturnedDate time.Time `json:"returned_date"`
 }

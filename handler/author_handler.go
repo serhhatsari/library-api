@@ -168,10 +168,6 @@ func DeleteAuthor(repo *repository.Repository) http.HandlerFunc {
 		err = repo.DeleteAuthor(id)
 		if err != nil {
 			log.Logger().Error(err.Error())
-			if err.Error() == "author not found" {
-				w.WriteHeader(http.StatusNotFound)
-				return
-			}
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
