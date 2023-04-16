@@ -23,14 +23,14 @@ type Category struct {
 }
 
 type Book struct {
-	ID              int       `db:"id"`
-	Title           string    `db:"title"`
-	AuthorID        int       `db:"author_id"`
-	CategoryID      int       `db:"category_id"`
-	PublicationDate time.Time `db:"publication_date"`
-	ISBN            string    `db:"isbn"`
-	Summary         string    `db:"summary"`
-	CoverImageURL   string    `db:"cover_image_url"`
+	ID              int       `json:"id"`
+	Title           string    `json:"title"`
+	AuthorID        int       `json:"author_id"`
+	CategoryID      int       `json:"category_id"`
+	PublicationDate time.Time `json:"publication_date"`
+	ISBN            string    `json:"isbn"`
+	Summary         string    `json:"summary"`
+	CoverImageURL   string    `json:"cover_image_url"`
 }
 
 type User struct {
